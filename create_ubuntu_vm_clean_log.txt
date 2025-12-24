@@ -1,0 +1,548 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20251223144614
+Username: USDAW\pgregory
+RunAs User: USDAW\pgregory
+Configuration Name: 
+Machine: USDAWP-2PDT184 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -ExecutionPolicy Bypass -File create_ubuntu_vm_clean.ps1
+Process ID: 25460
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\VM\create_ubuntu_vm_clean_log.txt
+Creating VM: ubuntu1
+
+
+    Directory: C:\VMs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        23/12/2025     14:46                ubuntu1
+d-----        23/12/2025     14:46                images
+Downloading Ubuntu cloud image...
+Converting image to VHDX...
+PS>TerminatingError(Start-Process): "This command cannot be run due to the error: The system cannot find the file specified."
+Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
+At C:\VM\create_ubuntu_vm_clean.ps1:50 char:1
++ Start-Process -FilePath "C:\Program Files\qemu\qemu-img.exe" -Argumen ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
+At C:\VM\create_ubuntu_vm_clean.ps1:50 char:1
++ Start-Process -FilePath "C:\Program Files\qemu\qemu-img.exe" -Argumen ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Optimizing VHDX file...
+Resize-VHD : 'C:\VMs\ubuntu1\os.vhdx' is not an existing virtual hard disk file.
+At C:\VM\create_ubuntu_vm_clean.ps1:57 char:1
++ Resize-VHD -Path $OsVHDXPath -SizeBytes 50GB
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Resize-VHD], VirtualizationException
+    + FullyQualifiedErrorId : InvalidParameter,Microsoft.Vhd.PowerShell.Cmdlets.ResizeVhd
+Resize-VHD : 'C:\VMs\ubuntu1\os.vhdx' is not an existing virtual hard disk file.
+At C:\VM\create_ubuntu_vm_clean.ps1:57 char:1
++ Resize-VHD -Path $OsVHDXPath -SizeBytes 50GB
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Resize-VHD], VirtualizationException
+    + FullyQualifiedErrorId : InvalidParameter,Microsoft.Vhd.PowerShell.Cmdlets.ResizeVhd
+
+Get-Content : Cannot find path 'C:\VM\user-data-simple' because it does not exist.
+At C:\VM\create_ubuntu_vm_clean.ps1:60 char:13
++ $userData = Get-Content "$PSScriptRoot\user-data-simple" -Raw
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\VM\user-data-simple:String) [Get-Content], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+Get-Content : Cannot find path 'C:\VM\user-data-simple' because it does not exist.
+At C:\VM\create_ubuntu_vm_clean.ps1:60 char:13
++ $userData = Get-Content "$PSScriptRoot\user-data-simple" -Raw
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\VM\user-data-simple:String) [Get-Content], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+
+Creating cidata VHDX...
+Creating VM...
+PS>TerminatingError(New-VM): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Hyper-V was unable to find a virtual switch with name "New Virtual Switch"."
+>> TerminatingError(New-VM): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Hyper-V was unable to find a virtual switch with name "New Virtual Switch"."
+The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Hyper-V was unable to find a virtual switch with name "New Virtual Switch".
+New-VM : Hyper-V was unable to find a virtual switch with name "New Virtual Switch".
+At C:\VM\create_ubuntu_vm_clean.ps1:94 char:1
++ New-VM -Name $VMName -MemoryStartupBytes 4GB -Generation 1 -VHDPath $ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-VM], VirtualizationException
+    + FullyQualifiedErrorId : InvalidParameter,Microsoft.HyperV.PowerShell.Commands.NewVM
+
+**********************
+Windows PowerShell transcript end
+End time: 20251223145628
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20251223164329
+Username: USDAW\pgregory
+RunAs User: USDAW\pgregory
+Configuration Name: 
+Machine: USDAWP-2PDT184 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -ExecutionPolicy Bypass -File create_ubuntu_vm_clean.ps1
+Process ID: 24348
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\VM\create_ubuntu_vm_clean_log.txt
+Creating VM: ubuntu1
+Converting image to VHDX...
+PS>TerminatingError(Start-Process): "This command cannot be run due to the error: The system cannot find the file specified."
+Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
+At C:\VM\create_ubuntu_vm_clean.ps1:50 char:1
++ Start-Process -FilePath "C:\Program Files\qemu\qemu-img.exe" -Argumen ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+Start-Process : This command cannot be run due to the error: The system cannot find the file specified.
+At C:\VM\create_ubuntu_vm_clean.ps1:50 char:1
++ Start-Process -FilePath "C:\Program Files\qemu\qemu-img.exe" -Argumen ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+
+Optimizing VHDX file...
+Resize-VHD : 'C:\VMs\ubuntu1\os.vhdx' is not an existing virtual hard disk file.
+At C:\VM\create_ubuntu_vm_clean.ps1:57 char:1
++ Resize-VHD -Path $OsVHDXPath -SizeBytes 50GB
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Resize-VHD], VirtualizationException
+    + FullyQualifiedErrorId : InvalidParameter,Microsoft.Vhd.PowerShell.Cmdlets.ResizeVhd
+Resize-VHD : 'C:\VMs\ubuntu1\os.vhdx' is not an existing virtual hard disk file.
+At C:\VM\create_ubuntu_vm_clean.ps1:57 char:1
++ Resize-VHD -Path $OsVHDXPath -SizeBytes 50GB
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Resize-VHD], VirtualizationException
+    + FullyQualifiedErrorId : InvalidParameter,Microsoft.Vhd.PowerShell.Cmdlets.ResizeVhd
+
+Get-Content : Cannot find path 'C:\VM\user-data-simple' because it does not exist.
+At C:\VM\create_ubuntu_vm_clean.ps1:60 char:13
++ $userData = Get-Content "$PSScriptRoot\user-data-simple" -Raw
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\VM\user-data-simple:String) [Get-Content], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+Get-Content : Cannot find path 'C:\VM\user-data-simple' because it does not exist.
+At C:\VM\create_ubuntu_vm_clean.ps1:60 char:13
++ $userData = Get-Content "$PSScriptRoot\user-data-simple" -Raw
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\VM\user-data-simple:String) [Get-Content], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+
+Creating cidata VHDX...
+Creating VM...
+PS>TerminatingError(New-VM): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Failed to add device 'Virtual Hard Disk'.
+
+Attachment 'C:\VMs\ubuntu1\os.vhdx' not found. Error: 'The system cannot find the file specified.'.
+
+'ubuntu1' failed to add device 'Virtual Hard Disk'. (Virtual machine ID 15B4DC48-1C88-40AE-87C0-601CFE61240A)
+
+'ubuntu1': Attachment 'C:\VMs\ubuntu1\os.vhdx' not found. Error: 'The system cannot find the file specified.' (0x80070002). (Virtual machine ID 15B4DC48-1C88-40AE-87C0-601CFE61240A)"
+>> TerminatingError(New-VM): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Failed to add device 'Virtual Hard Disk'.
+
+Attachment 'C:\VMs\ubuntu1\os.vhdx' not found. Error: 'The system cannot find the file specified.'.
+
+'ubuntu1' failed to add device 'Virtual Hard Disk'. (Virtual machine ID 15B4DC48-1C88-40AE-87C0-601CFE61240A)
+
+'ubuntu1': Attachment 'C:\VMs\ubuntu1\os.vhdx' not found. Error: 'The system cannot find the file specified.' (0x80070002). (Virtual machine ID 15B4DC48-1C88-40AE-87C0-601CFE61240A)"
+The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Failed to add device 'Virtual Hard Disk'.
+
+Attachment 'C:\VMs\ubuntu1\os.vhdx' not found. Error: 'The system cannot find the file specified.'.
+
+'ubuntu1' failed to add device 'Virtual Hard Disk'. (Virtual machine ID 15B4DC48-1C88-40AE-87C0-601CFE61240A)
+
+'ubuntu1': Attachment 'C:\VMs\ubuntu1\os.vhdx' not found. Error: 'The system cannot find the file specified.' (0x80070002). (Virtual machine ID 15B4DC48-1C88-40AE-87C0-601CFE61240A)
+New-VM : Failed to add device 'Virtual Hard Disk'.
+
+Attachment 'C:\VMs\ubuntu1\os.vhdx' not found. Error: 'The system cannot find the file specified.'.
+
+'ubuntu1' failed to add device 'Virtual Hard Disk'. (Virtual machine ID 15B4DC48-1C88-40AE-87C0-601CFE61240A)
+
+'ubuntu1': Attachment 'C:\VMs\ubuntu1\os.vhdx' not found. Error: 'The system cannot find the file specified.'
+(0x80070002). (Virtual machine ID 15B4DC48-1C88-40AE-87C0-601CFE61240A)
+At C:\VM\create_ubuntu_vm_clean.ps1:94 char:1
++ New-VM -Name $VMName -MemoryStartupBytes 4GB -Generation 1 -VHDPath $ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [New-VM], VirtualizationException
+    + FullyQualifiedErrorId : Unspecified,Microsoft.HyperV.PowerShell.Commands.NewVM
+
+**********************
+Windows PowerShell transcript end
+End time: 20251223164345
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20251224110902
+Username: USDAW\pgregory
+RunAs User: USDAW\pgregory
+Configuration Name: 
+Machine: USDAWP-2PDT184 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\VM\create_ubuntu_vm_clean.ps1
+Process ID: 18348
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\VM\create_ubuntu_vm_clean_log.txt
+Creating VM: ubuntu1
+Using Virtual Switch: New Virtual Switch
+
+
+    Directory: C:\VMs
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        24/12/2025     11:09                ubuntu1
+Converting image to VHDX...
+Optimizing VHDX file...
+Creating cidata VHDX...
+Creating VM...
+
+Name             : ubuntu1
+State            : Off
+CpuUsage         : 0
+MemoryAssigned   : 0
+MemoryDemand     : 0
+MemoryStatus     :
+Uptime           : 00:00:00
+Status           : Operating normally
+ReplicationState : Disabled
+Generation       : 1
+
+Adding data disk...
+Starting VM...
+Start-VM : 'ubuntu1' failed to start.
+
+Unable to allocate 4096 MB of RAM: Insufficient system resources exist to complete the requested service. (0x800705AA).
+
+'ubuntu1' failed to start. (Virtual machine ID EA6EA7B0-D5A2-48C7-85E1-281DDEFBA817)
+
+'ubuntu1' is unable to allocate 4096 MB of RAM: Insufficient system resources exist to complete the requested service. 
+(0x800705AA). (Virtual machine ID EA6EA7B0-D5A2-48C7-85E1-281DDEFBA817)
+At C:\VM\create_ubuntu_vm_clean.ps1:120 char:1
++ Start-VM -Name $VMName
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Start-VM], VirtualizationException
+    + FullyQualifiedErrorId : Unspecified,Microsoft.HyperV.PowerShell.Commands.StartVM
+Start-VM : 'ubuntu1' failed to start.
+
+Unable to allocate 4096 MB of RAM: Insufficient system resources exist to complete the requested service. (0x800705AA).
+
+'ubuntu1' failed to start. (Virtual machine ID EA6EA7B0-D5A2-48C7-85E1-281DDEFBA817)
+
+'ubuntu1' is unable to allocate 4096 MB of RAM: Insufficient system resources exist to complete the requested service.
+(0x800705AA). (Virtual machine ID EA6EA7B0-D5A2-48C7-85E1-281DDEFBA817)
+At C:\VM\create_ubuntu_vm_clean.ps1:120 char:1
++ Start-VM -Name $VMName
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Start-VM], VirtualizationException
+    + FullyQualifiedErrorId : Unspecified,Microsoft.HyperV.PowerShell.Commands.StartVM
+
+VM started. Waiting for initial boot (30 seconds)...
+Configuring enhanced VM services...
+Detecting VM IP address...
+
+ðŸŽ‰ === VM CREATION COMPLETE ===
+VM Name: ubuntu1
+IP Address: Check Hyper-V Manager or use: arp -a | findstr 00:00:00:00:00:00
+SSH Command: ssh root@<VM_IP>
+Username: root
+Password: Passw0rd
+
+Next steps:
+1. SSH to your VM: ssh root@<VM_IP>
+2. Docker is pre-installed and ready!
+3. Choose your Docker build (Personal/Business/Custom)
+4. Access your web services via the displayed URLs
+
+The VM is ready with SSH and Docker!
+**********************
+Windows PowerShell transcript end
+End time: 20251224111015
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20251224111609
+Username: USDAW\pgregory
+RunAs User: USDAW\pgregory
+Configuration Name: 
+Machine: USDAWP-2PDT184 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\VM\create_ubuntu_vm_clean.ps1
+Process ID: 24164
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\VM\create_ubuntu_vm_clean_log.txt
+Creating VM: ubuntu1
+Using Virtual Switch: New Virtual Switch
+Converting image to VHDX...
+Optimizing VHDX file...
+Creating cidata VHDX...
+Creating VM...
+
+Adding data disk...
+Starting VM...
+Start-VM : 'ubuntu1' failed to start.
+
+Unable to allocate 2048 MB of RAM: Insufficient system resources exist to complete the requested service. (0x800705AA).
+
+'ubuntu1' failed to start. (Virtual machine ID 40500EB1-1318-4C51-B2FA-68DDE6DAD5A8)
+
+'ubuntu1' is unable to allocate 2048 MB of RAM: Insufficient system resources exist to complete the requested service. 
+(0x800705AA). (Virtual machine ID 40500EB1-1318-4C51-B2FA-68DDE6DAD5A8)
+At C:\VM\create_ubuntu_vm_clean.ps1:122 char:1
++ Start-VM -Name $VMName
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Start-VM], VirtualizationException
+    + FullyQualifiedErrorId : Unspecified,Microsoft.HyperV.PowerShell.Commands.StartVM
+VM started. Waiting for initial boot (30 seconds)...
+Configuring enhanced VM services...
+Detecting VM IP address...
+
+ðŸŽ‰ === VM CREATION COMPLETE ===
+VM Name: ubuntu1
+IP Address: Check Hyper-V Manager or use: arp -a | findstr 00:00:00:00:00:00
+SSH Command: ssh root@<VM_IP>
+Username: root
+Password: Passw0rd
+
+Next steps:
+1. SSH to your VM: ssh root@<VM_IP>
+2. Docker is pre-installed and ready!
+3. Choose your Docker build (Personal/Business/Custom)
+4. Access your web services via the displayed URLs
+
+The VM is ready with SSH and Docker!
+**********************
+Windows PowerShell transcript end
+End time: 20251224111758
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20251224111846
+Username: USDAW\pgregory
+RunAs User: USDAW\pgregory
+Configuration Name: 
+Machine: USDAWP-2PDT184 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\VM\create_ubuntu_vm_clean.ps1
+Process ID: 24320
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\VM\create_ubuntu_vm_clean_log.txt
+Creating VM: ubuntu1
+Using Virtual Switch: New Virtual Switch
+Converting image to VHDX...
+Optimizing VHDX file...
+Creating cidata VHDX...
+Creating VM...
+
+Adding data disk...
+Starting VM...
+VM started. Waiting for initial boot (30 seconds)...
+Configuring enhanced VM services...
+Detecting VM IP address...
+
+ðŸŽ‰ === VM CREATION COMPLETE ===
+VM Name: ubuntu1
+IP Address: Check Hyper-V Manager or use: arp -a | findstr 00:15:5D:0F:01:01
+SSH Command: ssh root@<VM_IP>
+Username: root
+Password: Passw0rd
+
+Next steps:
+1. SSH to your VM: ssh root@<VM_IP>
+2. Docker is pre-installed and ready!
+3. Choose your Docker build (Personal/Business/Custom)
+4. Access your web services via the displayed URLs
+
+The VM is ready with SSH and Docker!
+**********************
+Windows PowerShell transcript end
+End time: 20251224111952
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20251224112649
+Username: USDAW\pgregory
+RunAs User: USDAW\pgregory
+Configuration Name: 
+Machine: USDAWP-2PDT184 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\VM\create_ubuntu_vm_clean.ps1
+Process ID: 7356
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\VM\create_ubuntu_vm_clean_log.txt
+Creating VM: ubuntu1
+Using Virtual Switch: New Virtual Switch
+Converting image to VHDX...
+Optimizing VHDX file...
+Creating cidata VHDX...
+Creating VM...
+
+Adding data disk...
+Starting VM...
+VM started. Waiting for initial boot (30 seconds)...
+Configuring enhanced VM services...
+Detecting VM IP address...
+
+ðŸŽ‰ === VM CREATION COMPLETE ===
+VM Name: ubuntu1
+IP Address: Check Hyper-V Manager or use: arp -a | findstr 00:15:5D:0F:01:02
+SSH Command: ssh root@<VM_IP>
+Username: root
+Password: Passw0rd
+
+Next steps:
+1. SSH to your VM: ssh root@<VM_IP>
+2. Docker is pre-installed and ready!
+3. Choose your Docker build (Personal/Business/Custom)
+4. Access your web services via the displayed URLs
+
+The VM is ready with SSH and Docker!
+**********************
+Windows PowerShell transcript end
+End time: 20251224112755
+**********************
+**********************
+Windows PowerShell transcript start
+Start time: 20251224121122
+Username: USDAW\pgregory
+RunAs User: USDAW\pgregory
+Configuration Name: 
+Machine: USDAWP-2PDT184 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\VM\create_ubuntu_vm_clean.ps1
+Process ID: 23876
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\VM\create_ubuntu_vm_clean_log.txt
+Creating VM: ubuntu1
+Using Virtual Switch: New Virtual Switch
+Converting image to VHDX...
+Optimizing VHDX file...
+Creating cidata VHDX...
+Creating VM...
+
+Adding data disk...
+Starting VM...
+Start-VM : 'ubuntu1' failed to start.
+
+Not enough memory in the system to start the virtual machine ubuntu1.
+
+Microsoft Emulated Video S3 (Instance ID 7D80D3DB-61EE-4879-8879-5609F1100AD0): Error 'Not enough memory resources are 
+available to complete this operation.'.
+
+'ubuntu1' failed to start. (Virtual machine ID 7D9C858F-2AA8-4CF7-B887-D25A5F01EB81)
+
+Not enough memory in the system to start the virtual machine ubuntu1 with ram size 2048 megabytes. (Virtual machine ID 
+7D9C858F-2AA8-4CF7-B887-D25A5F01EB81)
+
+'ubuntu1' Microsoft Emulated Video S3: Failed to start reserving resources with Error 'Not enough memory resources are 
+available to complete this operation.' (0x8007000E). (Virtual machine ID 7D9C858F-2AA8-4CF7-B887-D25A5F01EB81)
+At C:\VM\create_ubuntu_vm_clean.ps1:122 char:1
++ Start-VM -Name $VMName
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : FromStdErr: (:) [Start-VM], VirtualizationException
+    + FullyQualifiedErrorId : OutOfMemory,Microsoft.HyperV.PowerShell.Commands.StartVM
+VM started. Waiting for initial boot (30 seconds)...
+**********************
+Windows PowerShell transcript start
+Start time: 20251224121427
+Username: USDAW\pgregory
+RunAs User: USDAW\pgregory
+Configuration Name: 
+Machine: USDAWP-2PDT184 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\VM\create_ubuntu_vm_clean.ps1
+Process ID: 25360
+PSVersion: 5.1.26100.7019
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.7019
+BuildVersion: 10.0.26100.7019
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\VM\create_ubuntu_vm_clean_log.txt
+Creating VM: ubuntu1
+Using Virtual Switch: New Virtual Switch
+Converting image to VHDX...
+Optimizing VHDX file...
+Creating cidata VHDX...
+Creating VM...
+
+Adding data disk...
+Starting VM...
+VM started. Waiting for initial boot (30 seconds)...
+Configuring enhanced VM services...
+Detecting VM IP address...
+
+ðŸŽ‰ === VM CREATION COMPLETE ===
+VM Name: ubuntu1
+IP Address: Check Hyper-V Manager or use: arp -a | findstr 00:15:5D:0F:01:03
+SSH Command: ssh root@<VM_IP>
+Username: root
+Password: Passw0rd
+
+Next steps:
+1. SSH to your VM: ssh root@<VM_IP>
+2. Docker is pre-installed and ready!
+3. Choose your Docker build (Personal/Business/Custom)
+4. Access your web services via the displayed URLs
+
+The VM is ready with SSH and Docker!
+**********************
+Windows PowerShell transcript end
+End time: 20251224121532
+**********************

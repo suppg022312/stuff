@@ -42,8 +42,26 @@ sysctl vm.swappiness=30
 sysctl -p
 
 echo "--- Installing specialized tools (OpenCode, Dokploy) ---"
-curl -fsSL https://opencode.ai/install | bash || true
-curl -sSL https://dokploy.com/install.sh | sh || true
+
+# OpenCode installation
+echo "Installing OpenCode..."
+export HOME=/root
+if curl -fsSL https://opencode.ai/install | bash; then
+    echo "✓ OpenCode installed successfully"
+else
+    echo "✗ OpenCode installation failed or skipped (exit code: $?)"
+    echo "  Note: OpenCode may require manual installation"
+fi
+
+# Dokploy installation
+echo "Installing Dokploy..."
+export HOME=/root
+if curl -sSL https://dokploy.com/install.sh | sh; then
+    echo "✓ Dokploy installed successfully"
+    echo "  Access at: http://localhost:3000"
+else
+    echo "✗ Dokploy installation failed or skipped (exit code: $?)"
+fi
 
 # Docker Containers Setup
 echo "Launching Docker Containers..."
@@ -134,4 +152,25 @@ docker run --name postgres-db -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_
 echo "--- Launching AnythingLLM ---"
 docker run -d --name anythingllm1 -p 3009:3001 -v /var/lib/anythingllm:/app/server/storage -e STORAGE_DIR=/app/server/storage -e NODE_ENV=production -e ANYTHING_LLM_RUNTIME=docker mintplexlabs/anythingllm:latest
 
-echo "Setup complete. Some services may take a moment to pull and start."
+echo ""
+echo "=========================================="
+echo "    INSTALLATION SUMMARY"
+echo "=========================================="
+echo ""
+echo "📦 Docker Containers Status:"
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" 2>/dev/null || echo "Unable to list containers"
+echo ""
+echo "🔧 Installed Tools:"
+echo -n "  • OpenCode: "
+which opencode >/dev/null 2>&1 && echo "✓ Installed" || echo "✗ Not found"
+echo -n "  • Dokploy: "
+(systemctl is-active dokploy >/dev/null 2>&1 || docker ps -a | grep -q dokploy) && echo "✓ Installed" || echo "✗ Not found"
+echo -n "  • Node.js: "
+node -v 2>/dev/null || echo "✗ Not found"
+echo -n "  • Python3: "
+python3 --version 2>/dev/null || echo "✗ Not found"
+echo -n "  • Tailscale: "
+which tailscale >/dev/null 2>&1 && echo "✓ Installed" || echo "✗ Not found"
+echo ""
+echo "Setup complete! Check logs at /var/log/cloud-init-output.log for details."
+echo "=========================================="
