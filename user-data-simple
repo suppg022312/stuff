@@ -1,0 +1,29 @@
+#cloud-config
+chpasswd:
+  list: |
+    root:Passw0rd
+  expire: False
+ssh_pwauth: True
+ssh_authorized_keys: []
+runcmd:
+  - sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+  - systemctl restart ssh
+  - echo "--- Searching for cidata scripts ---"
+  - mkdir -p /media/cidata
+  - mount -L cidata /media/cidata || mount /dev/sdb1 /media/cidata || mount /dev/vdb1 /media/cidata || mount /dev/sda1 /media/cidata || true
+  - |
+    if [ -f /media/cidata/docker-setup.sh ]; then
+      echo "--- Found docker-setup.sh, fixing line endings and running ---"
+      cat /media/cidata/docker-setup.sh | tr -d '\r' > /tmp/docker-setup.sh
+      bash /tmp/docker-setup.sh
+    else
+      echo "--- ERROR: docker-setup.sh not found on /media/cidata ---"
+      ls -R /media/cidata
+    fi
+  - |
+    if [ -f /media/cidata/post-ssh-setup.sh ]; then
+      echo "--- Found post-ssh-setup.sh, fixing line endings and running ---"
+      cat /media/cidata/post-ssh-setup.sh | tr -d '\r' > /tmp/post-ssh-setup.sh
+      bash /tmp/post-ssh-setup.sh
+    fi
+  - echo "SSH and Cloud-Init ready" > /var/log/cloud-init-ready.log
